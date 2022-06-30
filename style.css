@@ -10,7 +10,7 @@
   --ff-primary: 'Staatliches', cursive;
   --ff-secondary: 'Poppins', sans-serif;
   --cf-primary: hsla(0, 0%, 100%, 1);
-  --cf-secondary: hsla(258, 9%, 32%, 1);
+  --cf-secondary: hsla(258, 9%, 32%, 0.6);
   --cf-thirty: hsla(258, 14%, 77%, 1);
   --color-primary: hsla(228, 15%, 38%, 1);
   --color-secondary: hsla(0, 0%, 94%, 1);
@@ -88,6 +88,13 @@ legend {
   margin: 0.8rem 0 2rem;
 }
 
+.wrapper_input {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 .wrapper_info {
   display: flex;
   flex-direction: column;
@@ -99,19 +106,24 @@ legend {
   gap: 2.2rem;
 }
 
-.wrapper_info label {
+.wrapper_info label, span {
   font-family: var(--ff-secondary);
-  font-size: 1.4rem;
+  font-size: 2rem;
   font-weight: 400;
   line-height: 2.4rem;
   color: var(--cf-secondary);
-  margin-top: 1.6rem;
+  position: absolute;
+  padding: 1.6rem;
+  transition: 0.4s ease all;
 }
 
 .wrapper_info label span {
+  width: 200px;
   font-size: 1.2rem;
   color: hsla(258, 14%, 77%, 1);
   margin-left: 1rem;
+  position: relative;
+  transition: 0.4s ease all;
 }
 
 .wrapper_info label span:hover {
@@ -122,11 +134,34 @@ legend {
   border: 1px solid var(--color-border);
   background: hsla(240, 33%, 99%, 1);
   border-radius: 0.8rem;
-  margin-top: 0.8rem;
   height: 5.6rem;
   padding: 0 2rem;
   font-family: var(--ff-secondary);
   color: hsla(0, 0%, 0%, 0.7);
+  font-size: 2rem;
+}
+
+.wrapper_info input:valid ~ label,
+.wrapper_info input:focus ~ label {
+  color: var(--cf-primary);
+  transform: translateX(20px) translateY(-11px);
+  background: var(--color-primary);
+  padding: 0 10px;
+  border-radius: 5px;
+  letter-spacing:2px;
+  font-size: 1.5rem;
+
+}
+
+.wrapper_info input:valid ~ span,
+.wrapper_info input:focus ~ span {
+  color: var(--cf-primary);
+  transform: translateX(20px) translateY(-11px);
+  background: var(--color-primary);
+  padding: 0 10px;
+  border-radius: 5px;
+  letter-spacing:2px;
+  font-size: 1.5rem;
 }
 
 .wrapper h3 {
@@ -173,3 +208,61 @@ legend {
   font-weight: 400;
   border: none;
 }
+
+
+
+
+/* Teste de Input */
+/* 
+main {
+  font-family: var(--ff-secondary);
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  gap: 30px;
+  background: #1d2b3a;
+}
+
+.inputBox {
+  position: relative;
+  width: 250px;
+}
+
+.inputBox input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  background: #1d2b3a;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+  letter-spacing: 2px;
+  font-size: 2em;
+}
+
+.inputBox span {
+  position: absolute;
+  left: 0;
+  padding: 10px;
+  pointer-events: none;
+  font-size: 2em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.inputBox input:valid ~ span,
+.inputBox input:focus ~ span
+ {
+  color: #00dfc4;
+  transform: translateX(20px) translateY(-8px);
+  font-size: 1.2rem;
+  padding: 0 10px;
+  background: #1d2b3a;
+  border-left: 1px solid rgba(255,255,255,0.25);
+  border-right: 1px solid rgba(255,255,255,0.25);
+letter-spacing: 0.2em;
+} */
